@@ -1,0 +1,22 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "main": "./server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedric-labarthe/blackjack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cedric-labarthe/blackjack/issues"
+  },
+  "homepage": "https://github.com/cedric-labarthe/blackjack#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

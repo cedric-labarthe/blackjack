@@ -5,25 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet" />
+    <link rel="icon" href="./favicon-32x32.png" sizes="32x32" />
     <script type="text/javascript" src="./index.js"></script>
-    <title>Document</title>
+    <title>Blackjack</title>
   </head>
   <body>
-    <div class="player">
-      <div id="playerCardContainer"></div>
+    <div class="dealer">
+      <span>Dealer's score : </span><span id="dealerTotalScore">0</span>
+      <div id="dealerCardContainer" class="cardContainers"></div>
+    </div>
+    <div class="table">
+      <span id="dealerSpeaking"></span>
       <div id="btnContainer">
         <button id="moreCard">More card</button>
         <button id="stopTurn">Stop turn</button>
       </div>
       <button id="restart">Restart</button>
+    </div>
+    <div class="player">
+      <div id="playerCardContainer" class="cardContainers"></div>
       <span>Player's score : </span><span id="playerTotalScore">0</span>
-    </div>
-    <div class="table">
-      <span id="dealerSpeaking"></span>
-    </div>
-    <div class="dealer">
-      <div id="dealerCardContainer"></div>
-      <span>Dealer's score : </span><span id="dealerTotalScore">0</span>
     </div>
   </body>
 </html>

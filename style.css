@@ -1,3 +1,11 @@
 #restart {
   display: none;
 }
+.hiddenCard {
+  display: none;
+}
+
+.cardContainers {
+  display: flex;
+  flex-wrap: wrap;
+}
