@@ -67,8 +67,11 @@ calculatePlayerScore = () => {
 };
 
 handleMoreCard = () => {
-  addCard('PLAYER');
-  calculatePlayerScore();
+  if(!isTurnFinished) {
+    addCard('PLAYER');
+    calculatePlayerScore();
+  }
+
 };
 
 handleWin = () => {
@@ -91,8 +94,10 @@ handleMoreTurn = () => {
 };
 
 handleStopTurn = () => {
-  isTurnFinished = true;
-  dealerTurn();
+  if(!isTurnFinished) {
+    isTurnFinished = true;
+    dealerTurn();
+  }
 };
 
 dealerTurn = () => {
