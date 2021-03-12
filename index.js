@@ -231,7 +231,7 @@ handleAce = (turn) => {
       return 1;
     }
   } else {
-    return parseInt(prompt(dealerSpeach.ace));
+    return parseInt(prompt(dealerSpeach.ace)) === 11 ? 11 : 1;
     // TODO
     // Wait for a one or an eleven
   }
