@@ -5,6 +5,7 @@ let dealerTotal = 0;
 let dealerTalkBox = null;
 let isTurnFinished = false;
 let cardArraySize = null;
+let hiddenCardImg = null;
 
 const cardObject = {
   cardImg: [],
@@ -37,14 +38,17 @@ init = () => {
 
 startGame = () => {
   dealerTalkBox.innerText = dealerSpeach.turn;
-  addCard('PLAYER');
-  addCard('PLAYER');
-  calculatePlayerScore();
+  isTurnFinished = true;
+  setTimeout(() => addCard('PLAYER'), 500);
+  setTimeout(() => addCard('PLAYER'), 1000);
+  setTimeout(() => calculatePlayerScore(), 1100);
+  setTimeout(() => addCard('DEALER'), 1500);
+  setTimeout(() => calculateDealerScore(), 1600);
+  setTimeout(() => {
+    isTurnFinished = false;
+    addCard('DEALER', true)
+  }, 2000);
 
-  addCard('DEALER');
-  calculateDealerScore();
-  //second dealer card is hidden
-  addCard('DEALER', true);
 };
 
 handleMoreCard = () => {
@@ -83,16 +87,23 @@ handleStopTurn = () => {
 };
 
 dealerTurn = () => {
-  document
-    .getElementsByClassName('hiddenCard')[0]
-    .classList.remove('hiddenCard');
-  calculateDealerScore();
-  while (dealerTotal <= 16) {
-    addCard('DEALER');
+  let hiddenCard =  document.getElementsByClassName('hiddenCard')[0];
+  hiddenCard.classList.add("return");
+  setTimeout(() => {
+    hiddenCard.setAttribute("src", hiddenCardImg);
     calculateDealerScore();
-  }
-  endGame();
+    setTimeout(() => {
+      while (dealerTotal <= 16) {
+        addCard('DEALER');
+        calculateDealerScore();
+      }
+      endGame();
+    }, 500);
+ 
+  }, 500)
+ 
 };
+
 
 // TODO
 // handle draw (if player stop at score >17 & <21 && dealer got the same) who win ???
@@ -147,9 +158,6 @@ addCard = (turn, hidden) => {
       : document.getElementById('dealerCardContainer');
   const card = document.createElement('div');
   card.classList.add('cards');
-  if (hidden) {
-    card.classList.add('hiddenCard');
-  }
 
   // let cardValue = Math.floor(Math.random() * 10) + 1;
 
@@ -165,17 +173,23 @@ addCard = (turn, hidden) => {
     cardValue = handleAce(turn);
   }
   let cardLabel = document.createElement('img');
-  cardLabel.setAttribute('src', cardClass);
+  if(hidden) {
+    cardLabel.classList.add('hiddenCard');
+    hiddenCardImg = cardClass;
+    cardLabel.setAttribute('src', "./public/images/cards/back.png");
+  } else {
+    cardLabel.setAttribute('src', cardClass);
+  }
 
-  let valueLabel = document.createElement('span');
+  // let valueLabel = document.createElement('span');
 
   turn == 'PLAYER'
     ? playerCardArray.push(cardValue)
     : dealerCardArray.push(cardValue);
 
-  valueLabel.innerText = cardValue;
+  // valueLabel.innerText = cardValue;
   card.appendChild(cardLabel);
-  card.appendChild(valueLabel);
+  // card.appendChild(valueLabel);
   container.appendChild(card);
 };
 

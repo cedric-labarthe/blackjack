@@ -6,25 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet" />
     <link rel="icon" href="./favicon-32x32.png" sizes="32x32" />
-    <script type="text/javascript" src="./index.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">    <script type="text/javascript" src="./index.js"></script>
     <title>Blackjack</title>
   </head>
   <body>
-    <div class="dealer">
-      <span>Dealer's score : </span><span id="dealerTotalScore">0</span>
-      <div id="dealerCardContainer" class="cardContainers"></div>
-    </div>
-    <div class="table">
-      <span id="dealerSpeaking"></span>
+    <div id="gameTable">
+      <div class="dealer">
+        <div class="textContainer">
+          <span>Dealer's score : </span><span id="dealerTotalScore">0</span>
+        </div>
+        <div id="dealerCardContainer" class="cardContainers"></div>
+      </div>
+      <div class="table">
+        <span>Dealer say : </span>
+        <span id="dealerSpeaking"></span>
+        
+      </div>
+      <div class="player">
+        <div id="playerCardContainer" class="cardContainers"></div>
+        <div class="textContainer">
+          <span>Player's score : </span><span id="playerTotalScore">0</span>
+        </div>
+      </div>
       <div id="btnContainer">
         <button id="moreCard">More card</button>
         <button id="stopTurn">Stop turn</button>
       </div>
       <button id="restart">Restart</button>
-    </div>
-    <div class="player">
-      <div id="playerCardContainer" class="cardContainers"></div>
-      <span>Player's score : </span><span id="playerTotalScore">0</span>
-    </div>
+    </div> 
   </body>
 </html>

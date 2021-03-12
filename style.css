@@ -1,11 +1,112 @@
+span {
+  color: white;
+  font-size: 2em;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: 'roboto';
+  overflow-x: hidden; 
+
+}
+#gameTable {
+  background-image: url('./public/images/background.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
 #restart {
   display: none;
 }
-.hiddenCard {
-  display: none;
+
+.textContainer {
+  width: 100%;
+  text-align: center;
 }
 
 .cardContainers {
   display: flex;
   flex-wrap: wrap;
+  height: 75%;
 }
+
+.cards {
+  height: 100%;
+  margin-right: 10px;
+}
+
+img.return {
+  animation: 2s returnCard;
+}
+
+
+.cards img {
+  height: 100%;
+}
+
+#btnContainer {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+  background: linear-gradient(186deg, rgb(136, 11, 7) 0%, rgba(170,0,0,1) 40%);
+  
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:12px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+  width: 40%;
+}
+button:hover {
+  background: linear-gradient(357deg, rgb(139, 8, 8) 0%, rgba(170,0,0,1) 40%);
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+#restart {
+  width: 10%;
+}
+
+.cards{
+  animation: 1s slideRightToLeft
+}
+        
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(500%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes returnCard {
+  0% {
+    transform: rotateY(180deg)
+  }
+  100% {
+    transform: rotateY(0deg)
+  }
+}
+
+
