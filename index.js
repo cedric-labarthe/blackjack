@@ -14,9 +14,11 @@ const cardObject = {
 
 const dealerSpeach = {
   turn: "It's your turn !",
+  dealer: "My turn",
   win: 'You Won !',
   loose: 'You loose ...',
   ace: 'What value do you want to get from this ace ? 1 or 11',
+  equal: 'We got the same score'
 };
 
 onload = () => {
@@ -51,10 +53,7 @@ startGame = () => {
 
 };
 
-handleMoreCard = () => {
-  addCard('PLAYER');
-  calculatePlayerScore();
-};
+
 
 calculatePlayerScore = () => {
   playerTotal = playerCardArray.reduce((total, card) => total + card);
@@ -67,6 +66,11 @@ calculatePlayerScore = () => {
   }
 };
 
+handleMoreCard = () => {
+  addCard('PLAYER');
+  calculatePlayerScore();
+};
+
 handleWin = () => {
   dealerTalkBox.innerText = dealerSpeach.win;
   isTurnFinished = true;
@@ -76,6 +80,11 @@ handleLoose = () => {
   dealerTalkBox.innerText = dealerSpeach.loose;
   isTurnFinished = true;
 };
+
+equalScore = () => {
+  dealerTalkBox.innerText = dealerSpeach.equal;
+  isTurnFinished = true;
+}
 
 handleMoreTurn = () => {
   dealerTalkBox.innerText = dealerSpeach.turn;
@@ -87,6 +96,8 @@ handleStopTurn = () => {
 };
 
 dealerTurn = () => {
+  dealerTalkBox.innerText = dealerSpeach.dealer;
+
   let hiddenCard =  document.getElementsByClassName('hiddenCard')[0];
   hiddenCard.classList.add("return");
   setTimeout(() => {
@@ -104,7 +115,6 @@ dealerTurn = () => {
  
 };
 
-
 // TODO
 // handle draw (if player stop at score >17 & <21 && dealer got the same) who win ???
 
@@ -113,6 +123,8 @@ endGame = () => {
     handleLoose();
   } else if (playerTotal === 21 || dealerTotal > 21) {
     handleWin();
+  } else if (playerTotal == dealerTotal) {
+    equalScore();
   } else if (playerTotal > dealerTotal) {
     handleWin();
   } else {
@@ -128,7 +140,7 @@ calculateDealerScore = () => {
   document.getElementById('dealerTotalScore').innerText = dealerTotal;
 };
 
-//tool
+//CARDS
 
 feedCardObject = () => {
   for (let i = 0; i < 4; i++) {
@@ -158,6 +170,7 @@ addCard = (turn, hidden) => {
       : document.getElementById('dealerCardContainer');
   const card = document.createElement('div');
   card.classList.add('cards');
+  card.classList.add('toPlace');
 
   // let cardValue = Math.floor(Math.random() * 10) + 1;
 

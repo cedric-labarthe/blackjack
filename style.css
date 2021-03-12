@@ -27,6 +27,11 @@ body{
 
 #restart {
   display: none;
+  width: 10%;
+}
+
+.player, .dealer {
+ height :40%;
 }
 
 .textContainer {
@@ -43,10 +48,7 @@ body{
 .cards {
   height: 100%;
   margin-right: 10px;
-}
-
-img.return {
-  animation: 2s returnCard;
+  animation: 1s slideRightToLeft
 }
 
 
@@ -54,11 +56,16 @@ img.return {
   height: 100%;
 }
 
+img.return {
+  animation: 1.7s returnCard;
+}
+
 #btnContainer {
   width: 25%;
   display: flex;
   justify-content: space-between;
 }
+
 button {
 	box-shadow:inset 0px 1px 0px 0px #a6827e;
   background: linear-gradient(186deg, rgb(136, 11, 7) 0%, rgba(170,0,0,1) 40%);
@@ -81,14 +88,6 @@ button:hover {
 button:active {
 	position:relative;
 	top:1px;
-}
-
-#restart {
-  width: 10%;
-}
-
-.cards{
-  animation: 1s slideRightToLeft
 }
         
 @keyframes slideRightToLeft {
