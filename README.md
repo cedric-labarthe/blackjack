@@ -2,7 +2,7 @@
 
 > Jeu de BlackJack réalisé en JS/HTML/CSS
 
-### ✨ [Demo](https://cedric-labarthe.github.)
+### ✨ [Demo](https://cedric-labarthe.github.io/blackjack/)
 
 Un jeu de BlackJack développé dans le cadre de notre formation à la Wild Code School
 
